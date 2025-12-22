@@ -1,0 +1,68 @@
+/* Reveal Text Animation */
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-text.revealed {
+    animation: slideUpFadeIn 0.8s ease-out forwards;
+}
+
+/* Parallax Container */
+.parallax-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.parallax-image {
+    will-change: transform;
+    transition: transform 0.1s ease-out;
+}
+
+/* Primary CTA Button - Swiss Design System */
+.btn-primary {
+    background-color: #121212;
+    color: #f5f5f5;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 0px;
+    padding: 1rem 2rem;
+    border: 1px solid #121212;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: #f5f5f5;
+    color: #121212;
+    border: 1px solid #121212;
+}
+
+.btn-primary:active {
+    transform: translateY(1px);
+}
+/* Mobile Typography Polish */
+@media (max-width: 767px) {
+    /* Improved readability for mobile paragraphs */
+    p {
+        line-height: 1.6;
+    }
+}

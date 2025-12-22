@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <title>Dr. Sameer Siddiqui | International Contracts & Commercial Lawyer</title>
+
+  <!-- Google Fonts: Libre Caslon Condensed (Display) and Poppins (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config for Design System -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#f5f5f5',
+            ink: '#121212',
+          },
+          fontFamily: {
+            display: ['"Libre Caslon Condensed"', 'serif'],
+            body: ['"Poppins"', 'sans-serif'],
+          },
+          fontSize: {
+            'giant': ['6rem', { lineHeight: '0.85' }],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #f5f5f5;
+      color: #121212;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Selection color for Swiss style feel */
+    ::selection {
+      background: #121212;
+      color: #f5f5f5;
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.1/",
+    "react": "https://esm.sh/react@^19.2.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.1/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.26"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
