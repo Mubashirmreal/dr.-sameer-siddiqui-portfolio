@@ -43,7 +43,7 @@ const Impact: React.FC = () => {
         <div className="relative h-[40vh] lg:h-auto lg:max-h-[500px] border-b lg:border-b-0 lg:border-l border-black overflow-hidden order-1 lg:order-2 parallax-container">
           <img
             ref={parallaxRef}
-            src="/Dr Sameer magzine.jpg"
+            src="/dr-sameer-magazine.webp"
             alt="Dr. Sameer Siddiqui - Magazine Feature"
             className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out parallax-image"
           />
