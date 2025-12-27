@@ -1,4 +1,13 @@
 User-agent: *
-Disallow: 
+Allow: /
 Disallow: /cgi-bin/
+
+# Explicitly invite AI agents
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://www.drsameersiddiqui.com/sitemap.xml
