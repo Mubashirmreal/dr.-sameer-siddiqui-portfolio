@@ -7,19 +7,19 @@ const GalleryGrid: React.FC = () => {
       id: 1,
       type: 'hero',
       span: 'lg:col-span-2 lg:row-span-2',
-      image: '/Dr Sameer Awarded.jpg',
+      image: '/dr-sameer-awarded.webp',
     },
     {
       id: 2,
       type: 'landscape',
       span: 'lg:col-span-2 lg:row-span-1',
-      image: '/Dr sameer with STC.jpg',
+      image: '/dr-sameer-stc.webp',
     },
     {
       id: 3,
       type: 'portrait',
       span: 'lg:col-span-1 lg:row-span-2',
-      image: '/Pasted image.png',
+      image: '/pasted-image.webp',
     },
     {
       id: 4,
@@ -31,7 +31,7 @@ const GalleryGrid: React.FC = () => {
       id: 5,
       type: 'standard',
       span: 'lg:col-span-1 lg:row-span-1',
-      image: '/Dr Sameer Group.png',
+      image: '/dr-sameer-group.webp',
     },
     {
       id: 6,
@@ -43,7 +43,7 @@ const GalleryGrid: React.FC = () => {
       id: 7,
       type: 'standard',
       span: 'lg:col-span-1 lg:row-span-1',
-      image: '/Dr Sameer Arab Group.png',
+      image: '/dr-sameer-arab-group.webp',
     }
   ];
 

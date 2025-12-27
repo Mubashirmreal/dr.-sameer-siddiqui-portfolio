@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
         <div className="col-span-1.5 relative h-[60vh] lg:h-full bg-gray-200 overflow-hidden order-2">
           <img
             ref={parallaxRef}
-            src="/dr-sameer-siddiqui.png"
+            src="/dr-sameer-siddiqui.webp"
             alt="Dr. Sameer Siddiqui"
             className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
           />
