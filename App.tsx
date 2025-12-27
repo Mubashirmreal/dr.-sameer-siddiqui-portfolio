@@ -9,6 +9,7 @@ import Impact from './components/Impact';
 import WhyChoose from './components/WhyChoose';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import CookieConsent from './components/CookieConsent';
 import { SCHEMA_MARKUP } from './constants';
 
 const App: React.FC = () => {
@@ -40,6 +41,9 @@ const App: React.FC = () => {
       <div className="border-l border-r border-black mx-auto max-w-[1920px]">
         <Footer />
       </div>
+
+      {/* Cookie Consent Banner */}
+      <CookieConsent />
     </div>
   );
 };

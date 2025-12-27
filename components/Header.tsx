@@ -51,6 +51,7 @@ const Header: React.FC = () => {
             </li>
             <li>
               <a
+                id="book-consultation-header"
                 href="https://calendly.com/YOUR_LINK_HERE"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -7,22 +7,19 @@ const GalleryGrid: React.FC = () => {
       id: 1,
       type: 'hero',
       span: 'lg:col-span-2 lg:row-span-2',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
-      label: 'Corporate Headquarters'
+      image: '/Dr Sameer Awarded.jpg',
     },
     {
       id: 2,
       type: 'landscape',
       span: 'lg:col-span-2 lg:row-span-1',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
-      label: 'Legal Briefing'
+      image: '/Dr sameer with STC.jpg',
     },
     {
       id: 3,
       type: 'portrait',
       span: 'lg:col-span-1 lg:row-span-2',
-      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80',
-      label: 'Strategic Leadership'
+      image: '/Pasted image.png',
     },
     {
       id: 4,
@@ -34,8 +31,7 @@ const GalleryGrid: React.FC = () => {
       id: 5,
       type: 'standard',
       span: 'lg:col-span-1 lg:row-span-1',
-      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80',
-      label: 'Global Collaboration'
+      image: '/Dr Sameer Group.png',
     },
     {
       id: 6,
@@ -47,8 +43,7 @@ const GalleryGrid: React.FC = () => {
       id: 7,
       type: 'standard',
       span: 'lg:col-span-1 lg:row-span-1',
-      image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80',
-      label: 'Advisory Panel'
+      image: '/Dr Sameer Arab Group.png',
     }
   ];
 
@@ -65,18 +60,12 @@ const GalleryGrid: React.FC = () => {
             transition={{ duration: 0.5, delay: idx * 0.1 }}
           >
             {item.image ? (
-              <>
-                <img
-                  src={item.image}
-                  alt={item.label}
-                  className="absolute inset-0 w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 hover:scale-105"
-                />
-                <div className="absolute bottom-4 left-4">
-                  <span className="bg-black text-white px-2 py-1 font-body text-[10px] uppercase tracking-widest">
-                    {item.label}
-                  </span>
-                </div>
-              </>
+              <img
+                src={item.image}
+                alt="Portfolio Image"
+                className={`absolute inset-0 w-full h-full grayscale hover:grayscale-0 contrast-125 hover:contrast-100 transition-all duration-500 hover:scale-105 ${item.image === '/Samer.jpg' ? 'object-contain' : 'object-cover'
+                  }`}
+              />
             ) : (
               <div className="p-8 text-center">
                 <h3 className="font-display text-5xl md:text-6xl mb-2">{item.content?.title}</h3>

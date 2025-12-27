@@ -59,12 +59,12 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Right Column: Photography */}
-        <div className="col-span-1 relative h-[50vh] lg:h-full bg-gray-200 overflow-hidden order-2">
+        <div className="col-span-1.5 relative h-[60vh] lg:h-full bg-gray-200 overflow-hidden order-2">
           <img
             ref={parallaxRef}
-            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80"
+            src="/dr-sameer-siddiqui.png"
             alt="Dr. Sameer Siddiqui"
-            className="absolute inset-0 w-full h-full object-cover grayscale contrast-125"
+            className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
           />
         </div>
       </div>

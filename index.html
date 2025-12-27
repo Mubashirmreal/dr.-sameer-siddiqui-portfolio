@@ -7,36 +7,16 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
   <title>Dr. Sameer Siddiqui | International Contracts & Commercial Lawyer</title>
 
-  <!-- Google Fonts: Libre Caslon Condensed (Display) and Poppins (Body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Condensed:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
+  <!-- Preload critical self-hosted fonts -->
+  <link rel="preload" href="/fonts/poppins-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/libre-caslon-condensed-v1-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Self-hosted fonts (no external requests) -->
+  <link rel="stylesheet" href="/fonts.css">
 
-  <!-- Tailwind Config for Design System -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            paper: '#f5f5f5',
-            ink: '#121212',
-          },
-          fontFamily: {
-            display: ['"Libre Caslon Condensed"', 'serif'],
-            body: ['"Poppins"', 'sans-serif'],
-          },
-          fontSize: {
-            'giant': ['6rem', { lineHeight: '0.85' }],
-          }
-        }
-      }
-    }
-  </script>
+  <!-- DNS prefetch for external dependencies (React/Framer Motion from esm.sh) -->
+  <link rel="dns-prefetch" href="https://esm.sh">
+  <link rel="preconnect" href="https://esm.sh" crossorigin>
 
   <style>
     body {

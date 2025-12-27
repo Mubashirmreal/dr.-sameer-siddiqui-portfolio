@@ -11,11 +11,11 @@ const Impact: React.FC = () => {
     };
   }, []);
   return (
-    <section className="border-b border-black">
+    <section className="border-t border-b border-black">
       <div className="grid grid-cols-1 lg:grid-cols-2">
 
         {/* Left Column: Content (Order 2 on Mobile, Order 1 on Desktop) */}
-        <div className="p-8 md:p-16 lg:p-24 flex flex-col justify-center order-2 lg:order-1">
+        <div className="p-8 md:p-16 lg:p-16 flex flex-col justify-center order-2 lg:order-1">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -40,12 +40,12 @@ const Impact: React.FC = () => {
         </div>
 
         {/* Right Column: Image with Parallax (Order 1 on Mobile, Order 2 on Desktop) */}
-        <div className="relative h-[50vh] lg:h-auto border-b lg:border-b-0 lg:border-l border-black overflow-hidden order-1 lg:order-2 parallax-container">
+        <div className="relative h-[40vh] lg:h-auto lg:max-h-[500px] border-b lg:border-b-0 lg:border-l border-black overflow-hidden order-1 lg:order-2 parallax-container">
           <img
             ref={parallaxRef}
-            src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=80"
-            alt="Architecture Structure"
-            className="absolute inset-0 w-full h-full object-cover grayscale contrast-125 parallax-image"
+            src="/Dr Sameer magzine.jpg"
+            alt="Dr. Sameer Siddiqui - Magazine Feature"
+            className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out parallax-image"
           />
         </div>
 
