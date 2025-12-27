@@ -31,18 +31,18 @@ optimize_image() {
     fi
 }
 
-# Hero image - keep original size
-optimize_image "dr-sameer-siddiqui.png" "dr-sameer-siddiqui.webp" "" 85
+# Hero image - keep original size but increase compression
+optimize_image "dr-sameer-siddiqui.png" "dr-sameer-siddiqui.webp" "" 75
 
-# Gallery images - resize to appropriate dimensions
-optimize_image "Dr Sameer Group.png" "dr-sameer-group.webp" 800 85
-optimize_image "Dr Sameer Arab Group.png" "dr-sameer-arab-group.webp" 800 85
-optimize_image "Pasted image.png" "pasted-image.webp" "" 85
-optimize_image "Dr Sameer Awarded.jpg" "dr-sameer-awarded.webp" "" 85
-optimize_image "Dr sameer with STC.jpg" "dr-sameer-stc.webp" 1200 85
+# Gallery images - resize to mobile-optimized dimensions with higher compression
+optimize_image "Dr Sameer Group.png" "dr-sameer-group.webp" 600 75
+optimize_image "Dr Sameer Arab Group.png" "dr-sameer-arab-group.webp" 500 75
+optimize_image "Pasted image.png" "pasted-image.webp" "" 75
+optimize_image "Dr Sameer Awarded.jpg" "dr-sameer-awarded.webp" "" 75
+optimize_image "Dr sameer with STC.jpg" "dr-sameer-stc.webp" 800 75
 
-# Magazine image - resize
-optimize_image "Dr Sameer magzine.jpg" "dr-sameer-magazine.webp" 1000 85
+# Magazine image - resize to mobile-optimized dimensions
+optimize_image "Dr Sameer magzine.jpg" "dr-sameer-magazine.webp" 800 75
 
 echo ""
 echo "📊 File size comparison:"

@@ -64,6 +64,7 @@ const Hero: React.FC = () => {
             ref={parallaxRef}
             src="/dr-sameer-siddiqui.webp"
             alt="Dr. Sameer Siddiqui"
+            fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
           />
         </div>

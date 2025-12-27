@@ -5,15 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KX93FSZF');</script>
+
+  <!-- Google Tag Manager (deferred for performance) -->
+  <script>
+    // Defer GTM loading until after initial render
+    window.addEventListener('load', function () {
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-KX93FSZF');
+    });
+  </script>
   <!-- End Google Tag Manager -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
@@ -32,6 +38,10 @@
   <!-- LinkedIn Profile -->
   <link rel="me" href="https://www.linkedin.com/in/dr-sameer-siddiqui-688a202/">
   <meta property="profile:username" content="dr-sameer-siddiqui-688a202">
+
+
+  <!-- Preload LCP image (hero) for faster discovery -->
+  <link rel="preload" href="/dr-sameer-siddiqui.webp" as="image" type="image/webp" fetchpriority="high">
 
   <!-- Preload critical self-hosted fonts -->
   <link rel="preload" href="/fonts/poppins-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
