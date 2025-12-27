@@ -31,7 +31,7 @@ const GalleryGrid: React.FC = () => {
       id: 5,
       type: 'standard',
       span: 'lg:col-span-1 lg:row-span-1',
-      image: '/dr-sameer-group.webp',
+      image: '/dr-sameer-gls.webp',
     },
     {
       id: 6,
@@ -65,7 +65,11 @@ const GalleryGrid: React.FC = () => {
                 alt="Portfolio Image"
                 loading="lazy"
                 decoding="async"
-                className={`absolute inset-0 w-full h-full grayscale hover:grayscale-0 contrast-125 hover:contrast-100 transition-all duration-500 hover:scale-105 ${item.image === '/Samer.jpg' ? 'object-contain' : 'object-cover'
+                className={`absolute inset-0 w-full h-full grayscale hover:grayscale-0 contrast-125 hover:contrast-100 transition-all duration-500 hover:scale-105 ${item.image === '/Samer.jpg'
+                    ? 'object-contain'
+                    : item.image === '/pasted-image.webp'
+                      ? 'object-cover object-top md:object-center'
+                      : 'object-cover'
                   }`}
               />
             ) : (

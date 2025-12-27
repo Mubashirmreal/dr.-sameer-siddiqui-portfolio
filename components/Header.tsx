@@ -1,19 +1,29 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerOffset = 80; // Account for sticky header height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      // Close mobile menu first
+      setIsMobileMenuOpen(false);
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      // Small delay to let menu close animation complete
+      setTimeout(() => {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    } else {
+      console.error(`Section with id "${sectionId}" not found`);
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -65,14 +75,57 @@ const Header: React.FC = () => {
 
         {/* Mobile Hamburger Menu - Only visible on mobile */}
         <button
-          className="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer"
+          onClick={toggleMobileMenu}
+          className="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer relative z-50"
           aria-label="Menu"
+          aria-expanded={isMobileMenuOpen}
         >
-          <span className="block w-6 h-[2px] bg-black mb-[5px]"></span>
-          <span className="block w-6 h-[2px] bg-black mb-[5px]"></span>
-          <span className="block w-6 h-[2px] bg-black"></span>
+          <span className={`block w-6 h-[2px] bg-black mb-[5px] transition-transform duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`}></span>
+          <span className={`block w-6 h-[2px] bg-black mb-[5px] transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`block w-6 h-[2px] bg-black transition-transform duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}></span>
         </button>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-paper border-t border-black overflow-hidden"
+          >
+            <nav className="px-6 py-8">
+              <ul className="flex flex-col gap-6 text-sm font-body uppercase tracking-widest font-medium">
+                <li
+                  onClick={() => scrollToSection('about')}
+                  className="cursor-pointer hover:underline underline-offset-4 decoration-1 py-2"
+                >
+                  About
+                </li>
+                <li
+                  onClick={() => scrollToSection('experience')}
+                  className="cursor-pointer hover:underline underline-offset-4 decoration-1 py-2"
+                >
+                  Experience
+                </li>
+                <li className="pt-4">
+                  <a
+                    href="https://calendly.com/YOUR_LINK_HERE"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary text-xs block text-center"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Book Consultation
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };

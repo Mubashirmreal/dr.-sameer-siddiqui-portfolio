@@ -25,10 +25,10 @@ const App: React.FC = () => {
 
       <main className="border-l border-r border-black mx-auto max-w-[1920px]">
         <Hero />
-        <div id="about">
+        <div id="about" className="scroll-mt-20">
           <Highlights />
         </div>
-        <div id="experience">
+        <div id="experience" className="scroll-mt-20">
           <ExperienceTable />
         </div>
         <GalleryGrid />
