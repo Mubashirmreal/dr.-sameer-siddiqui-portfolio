@@ -45,6 +45,8 @@ const Impact: React.FC = () => {
             ref={parallaxRef}
             src="/dr-sameer-magazine.webp"
             alt="Dr. Sameer Siddiqui - Magazine Feature"
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out parallax-image"
           />
         </div>

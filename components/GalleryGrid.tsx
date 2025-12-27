@@ -63,6 +63,8 @@ const GalleryGrid: React.FC = () => {
               <img
                 src={item.image}
                 alt="Portfolio Image"
+                loading="lazy"
+                decoding="async"
                 className={`absolute inset-0 w-full h-full grayscale hover:grayscale-0 contrast-125 hover:contrast-100 transition-all duration-500 hover:scale-105 ${item.image === '/Samer.jpg' ? 'object-contain' : 'object-cover'
                   }`}
               />
