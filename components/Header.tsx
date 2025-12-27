@@ -72,7 +72,7 @@ const Header: React.FC = () => {
             <li>
               <a
                 id="book-consultation-header"
-                href="https://calendly.com/YOUR_LINK_HERE"
+                href="https://app.cal.eu/sameersiddiqui/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-xs"
@@ -133,7 +133,7 @@ const Header: React.FC = () => {
                 </li>
                 <li className="pt-4">
                   <a
-                    href="https://calendly.com/YOUR_LINK_HERE"
+                    href="https://app.cal.eu/sameersiddiqui/30min"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-primary text-xs block text-center"

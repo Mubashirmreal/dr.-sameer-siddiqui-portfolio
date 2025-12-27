@@ -37,7 +37,7 @@ const FAQ: React.FC = () => {
               Have a specific issue?
             </p>
             <a
-              href="https://calendly.com/YOUR_LINK_HERE"
+              href="https://app.cal.eu/sameersiddiqui/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-body text-sm font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:bg-black hover:text-white hover:px-2 hover:pb-2 hover:border-b-0 transition-all duration-300"

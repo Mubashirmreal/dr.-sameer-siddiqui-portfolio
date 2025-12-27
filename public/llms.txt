@@ -1,0 +1,15 @@
+# Dr. Sameer Siddiqui
+> International Contracts & Commercial Lawyer providing clarity and commercial practicality to complex regulatory matters in the Middle East and globally.
+
+This file serves as a directory for AI agents to discover and understand the professional expertise of Dr. Sameer Siddiqui.
+
+## Core Resources
+- [Full Professional Profile](https://www.drsameersiddiqui.com/llms-full.txt): Comprehensive career history, contract expertise, and legal philosophy.
+- [Legal Services](https://www.drsameersiddiqui.com/#services): Detailed list of advisory services including cross-border contracts and project governance.
+- [Experience & Impact](https://www.drsameersiddiqui.com/#experience): 18-year career summary across Saudi Arabia's critical sectors.
+- [Booking & Contact](https://app.cal.eu/sameersiddiqui/30min): Direct channel for qualified commercial inquiries.
+
+## Technical Specifications
+- **Sitemap**: https://www.drsameersiddiqui.com/sitemap.xml
+- **Format**: Markdown / Text
+- **Primary Language**: English

@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
             className="md:hidden fixed bottom-0 left-0 right-0 z-40 border-t border-black"
           >
             <a
-              href="https://calendly.com/YOUR_LINK_HERE"
+              href="https://app.cal.eu/sameersiddiqui/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full bg-[#121212] text-[#f5f5f5] font-body font-bold uppercase tracking-widest text-center py-4 px-6 hover:bg-[#f5f5f5] hover:text-[#121212] transition-colors duration-300 active:scale-[0.98]"
