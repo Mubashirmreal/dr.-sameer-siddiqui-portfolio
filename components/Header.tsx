@@ -61,6 +61,16 @@ const Header: React.FC = () => {
             </li>
             <li>
               <a
+                href="https://www.linkedin.com/in/dr-sameer-siddiqui-688a202/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer hover:underline underline-offset-4 decoration-1"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a
                 id="book-consultation-header"
                 href="https://calendly.com/YOUR_LINK_HERE"
                 target="_blank"
@@ -109,6 +119,17 @@ const Header: React.FC = () => {
                   className="cursor-pointer hover:underline underline-offset-4 decoration-1 py-2"
                 >
                   Experience
+                </li>
+                <li className="py-2">
+                  <a
+                    href="https://www.linkedin.com/in/dr-sameer-siddiqui-688a202/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer hover:underline underline-offset-4 decoration-1"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    LinkedIn
+                  </a>
                 </li>
                 <li className="pt-4">
                   <a
