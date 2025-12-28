@@ -1,0 +1,217 @@
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import { escapeInject, dangerouslySkipEscape } from 'vike/server';
+import type { OnRenderHtmlAsync } from 'vike/types';
+
+export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
+    const { Page } = pageContext;
+
+    const pageHtml = ReactDOMServer.renderToString(React.createElement(Page));
+
+    const documentHtml = escapeInject`<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <!-- Google Tag Manager (deferred for performance) -->
+  <script>
+    // Defer GTM loading until after initial render
+    window.addEventListener('load', function () {
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-KX93FSZF');
+    });
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <title>Dr. Sameer Siddiqui | International Contracts & Commercial Lawyer</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Dr. Sameer Siddiqui - International contracts and commercial lawyer specializing in Middle East and global markets. Expert in contract drafting, regulatory compliance, and commercial law with 18+ years of experience.">
+  <meta name="keywords"
+    content="international lawyer, commercial lawyer, contracts lawyer, Middle East lawyer, international contracts, contract drafting, regulatory compliance, commercial law, cross-border transactions, legal consultant, corporate lawyer, international arbitration, commercial disputes, legal advisory, Saudi Arabia lawyer, GCC lawyer, international trade law">
+  <meta name="author" content="Dr. Sameer Siddiqui">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+
+
+  <!-- LinkedIn Profile -->
+  <link rel="me" href="https://www.linkedin.com/in/dr-sameer-siddiqui-688a202/">
+  <meta property="profile:username" content="dr-sameer-siddiqui-688a202">
+
+  <!-- JSON-LD Structured Data for SEO & AI -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    "name": "Dr. Sameer Siddiqui",
+    "image": "https://www.drsameersiddiqui.com/dr-sameer-siddiqui.webp",
+    "url": "https://www.drsameersiddiqui.com",
+    "description": "International Contracts & Commercial Lawyer specializing in cross-border transactions and regulatory compliance in the Middle East.",
+    "knowsAbout": [
+      "International Contract Law",
+      "Commercial Advisory",
+      "Governance, Risk, and Compliance",
+      "Infrastructure & Banking"
+    ],
+    "areaServed": ["Middle East", "Global"],
+    "memberOf": [
+      { "@type": "Organization", "name": "RNR Consultants LLC" },
+      { "@type": "Organization", "name": "Autism Foundation (UK)" }
+    ],
+    "mainEntityOfPage": "https://www.linkedin.com/in/dr-sameer-siddiqui-688a202/",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Book Consultation",
+      "url": "https://app.cal.eu/sameersiddiqui/30min"
+    }
+  }
+  </script>
+
+
+  <!-- Preload LCP image (hero) for faster discovery -->
+  <link rel="preload" href="/dr-sameer-siddiqui.webp" as="image" type="image/webp" fetchpriority="high">
+
+  <!-- Preload critical self-hosted fonts -->
+  <link rel="preload" href="/fonts/poppins-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/libre-caslon-condensed-v1-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- DNS prefetch for external dependencies (React/Framer Motion from esm.sh) -->
+  <link rel="dns-prefetch" href="https://esm.sh">
+  <link rel="preconnect" href="https://esm.sh" crossorigin>
+
+  <!-- Critical CSS: Inlined for optimal performance (eliminates render blocking) -->
+  <style>
+    /* Self-hosted Font Definitions */
+    @font-face {
+      font-family: 'Libre Caslon Condensed';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/libre-caslon-condensed-v1-latin-regular.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Libre Caslon Condensed';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('/fonts/libre-caslon-condensed-v1-latin-700.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url('/fonts/poppins-v20-latin-300.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/fonts/poppins-v20-latin-regular.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('/fonts/poppins-v20-latin-500.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('/fonts/poppins-v20-latin-600.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    /* Base Styles */
+    body {
+      background-color: #f5f5f5;
+      color: #121212;
+      -webkit-font-smoothing: antialiased;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    ::selection {
+      background: #121212;
+      color: #f5f5f5;
+    }
+
+    /* Critical Button Styles (Header CTA) */
+    .btn-primary {
+      background-color: #121212;
+      color: #f5f5f5;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 1rem 2rem;
+      border: 1px solid #121212;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #f5f5f5;
+      color: #121212;
+    }
+
+    /* Critical Animation (Hero Section) */
+    .reveal-text {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .reveal-text.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <!-- Defer main CSS bundle (non-blocking) -->
+  <link rel="preload" href="/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="/index.css">
+  </noscript>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KX93FSZF" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="root">${dangerouslySkipEscape(pageHtml)}</div>
+</body>
+
+</html>`;
+
+    return documentHtml;
+};
