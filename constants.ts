@@ -14,7 +14,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     sector: "Infrastructure & Banking",
     organizations: "Saudi Railway Co., The Saudi Investment Bank",
-    takeaway: "Navigating massive projects and stringent financial governance."
+    takeaway: "Navigating pivotal projects and stringent financial governance."
   },
   {
     sector: "Defense & Advanced Tech",
@@ -58,7 +58,7 @@ export const SERVICES_DATA: ServiceItem[] = [
 
 export const HIGHLIGHTS_DATA: HighlightItem[] = [
   {
-    organization: "RNR Consultants LLC",
+    organization: "R&R Consultants LLC",
     role: "Senior Member (Pro Bono)",
     description: "Legal, contractual, and governance advisory."
   },

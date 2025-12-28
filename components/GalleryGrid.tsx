@@ -66,9 +66,11 @@ const GalleryGrid: React.FC = () => {
                 loading="lazy"
                 decoding="async"
                 className={`absolute inset-0 w-full h-full grayscale hover:grayscale-0 contrast-125 hover:contrast-100 transition-all duration-500 hover:scale-105 ${item.image === '/Samer.jpg'
-                    ? 'object-contain'
-                    : item.image === '/pasted-image.webp'
-                      ? 'object-cover object-top md:object-center'
+                  ? 'object-contain'
+                  : item.image === '/pasted-image.webp'
+                    ? 'object-cover object-top md:object-center'
+                    : item.image === '/dr-sameer-stc.webp'
+                      ? 'object-cover object-right md:object-center'
                       : 'object-cover'
                   }`}
               />

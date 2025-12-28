@@ -53,7 +53,8 @@ const Hero: React.FC = () => {
               </span>
             </div>
             <p className="font-body text-lg md:text-xl max-w-xl leading-relaxed reveal-text">
-              Bringing clarity, structure, and commercial practicality to complex contractual and regulatory matters.
+              International Contracts & Commercial Advisory for High-Value, Cross-Border Projects
+18+ years advising governments, corporates, and infrastructure projects in the Middle East and beyond.
             </p>
           </motion.div>
         </div>
