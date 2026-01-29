@@ -4,11 +4,11 @@ import { escapeInject, dangerouslySkipEscape } from 'vike/server';
 import type { OnRenderHtmlAsync } from 'vike/types';
 
 export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
-    const { Page } = pageContext;
+  const { Page } = pageContext;
 
-    const pageHtml = ReactDOMServer.renderToString(React.createElement(Page));
+  const pageHtml = ReactDOMServer.renderToString(React.createElement(Page));
 
-    const documentHtml = escapeInject`<!DOCTYPE html>
+  const documentHtml = escapeInject`<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -194,12 +194,6 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
       transform: translateY(0);
     }
   </style>
-
-  <!-- Defer main CSS bundle (non-blocking) -->
-  <link rel="preload" href="/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="/index.css">
-  </noscript>
 </head>
 
 <body>
@@ -213,5 +207,5 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
 
 </html>`;
 
-    return documentHtml;
+  return documentHtml;
 };
