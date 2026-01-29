@@ -4,7 +4,7 @@ import { HIGHLIGHTS_DATA } from '../constants';
 
 const Highlights: React.FC = () => {
   return (
-    <section className="border-b border-black">
+    <section className="border-b border-black relative z-0">
       <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black">
         {HIGHLIGHTS_DATA.map((item, index) => (
           <motion.div
