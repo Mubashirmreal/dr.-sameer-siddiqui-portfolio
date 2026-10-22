@@ -50,6 +50,7 @@ const Services: React.FC = () => {
               {/* Mobile: Accordion Button */}
               <button
                 onClick={() => toggleAccordion(index)}
+                aria-expanded={isOpen}
                 className="md:hidden w-full flex items-start justify-between p-8 text-left"
               >
                 <div className="flex-1">

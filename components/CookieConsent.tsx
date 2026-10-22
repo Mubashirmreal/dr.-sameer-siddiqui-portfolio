@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { readConsent, writeConsent } from '../utils/consent';
 
 const CookieConsent: React.FC = () => {
     const [showBanner, setShowBanner] = useState(false);
@@ -24,8 +25,7 @@ const CookieConsent: React.FC = () => {
     };
 
     useEffect(() => {
-        // Check localStorage for cookie consent
-        const consent = localStorage.getItem('cookie_consent');
+        const consent = readConsent();
 
         if (consent === 'accepted') {
             // User has already accepted, load analytics immediately
@@ -38,13 +38,13 @@ const CookieConsent: React.FC = () => {
     }, []);
 
     const handleAccept = () => {
-        localStorage.setItem('cookie_consent', 'accepted');
+        writeConsent('accepted');
         setShowBanner(false);
         loadAnalytics();
     };
 
     const handleDecline = () => {
-        localStorage.setItem('cookie_consent', 'declined');
+        writeConsent('declined');
         setShowBanner(false);
     };
 

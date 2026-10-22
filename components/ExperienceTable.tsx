@@ -36,27 +36,24 @@ const ExperienceTable: React.FC = () => {
 
           {/* Data Rows */}
           {EXPERIENCE_DATA.map((row, index) => (
-            <div key={index} className="experience-row grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 py-6 md:py-8 border-b border-black last:border-b-0 items-start px-2">
+            <div key={index} className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 py-6 md:py-8 border-b border-black last:border-b-0 items-start px-2">
               {/* Sector */}
               <div className="md:col-span-4 text-left">
-                <span className="experience-label hidden">Sector</span>
-                <span className="experience-sector block font-body text-[0.8rem] md:text-2xl uppercase md:font-display md:leading-none text-[#666] md:text-black">
+                <span className="block font-body text-[0.8rem] md:text-2xl uppercase md:font-display md:leading-none text-[#666] md:text-black">
                   {row.sector}
                 </span>
               </div>
 
               {/* Organizations */}
               <div className="md:col-span-4 text-center">
-                <span className="experience-label hidden">Key Entities</span>
-                <span className="experience-organization block font-body text-[1.2rem] md:text-base font-bold md:font-medium text-black">
+                <span className="block font-body text-[1.2rem] md:text-base font-bold md:font-medium text-black">
                   {row.organizations}
                 </span>
               </div>
 
               {/* Takeaway */}
               <div className="md:col-span-4 text-right">
-                <span className="experience-label hidden">The Takeaway</span>
-                <span className="experience-takeaway block font-body text-[1rem] md:text-base italic md:not-italic text-black">
+                <span className="block font-body text-[1rem] md:text-base italic md:not-italic text-black">
                   {row.takeaway}
                 </span>
               </div>

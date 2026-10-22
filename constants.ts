@@ -1,5 +1,9 @@
 import { ExperienceItem, FAQItem, HighlightItem, ServiceItem, ReasonItem } from './types';
 
+export const BOOKING_URL = "https://app.cal.eu/sameersiddiqui/30min";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/dr-sameer-siddiqui-688a202/";
+export const CONTACT_EMAIL = "hi@drsameersiddiqui.com";
+
 export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     sector: "Telecom & IT",
@@ -103,24 +107,3 @@ export const FAQ_DATA: FAQItem[] = [
     answer: "While my primary focus is on large-scale industrial and government entities, I advise high-growth technology ventures on licensing, IP protection, and governance structures."
   }
 ];
-
-export const SCHEMA_MARKUP = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Dr. Sameer Siddiqui",
-  "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80",
-  "description": "International Contracts & Commercial Lawyer bringing clarity, structure, and commercial practicality to complex contractual and regulatory matters.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressRegion": "Global",
-    "addressCountry": "Global"
-  },
-  "url": "https://www.drsameersiddiqui.com",
-  "jobTitle": "International Contracts & Commercial Lawyer",
-  "knowsAbout": [
-    "International Commercial Contracts",
-    "Governance, Risk, and Compliance",
-    "Technology Licensing",
-    "Mega-project contracts"
-  ]
-};

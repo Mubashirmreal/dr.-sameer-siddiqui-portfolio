@@ -15,7 +15,6 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
   <!-- Google Tag Manager (deferred for performance) -->
   <script>
     // Defer GTM loading until after initial render
@@ -87,11 +86,7 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
   <link rel="preload" href="/fonts/poppins-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/libre-caslon-condensed-v1-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- DNS prefetch for external dependencies (React/Framer Motion from esm.sh) -->
-  <link rel="dns-prefetch" href="https://esm.sh">
-  <link rel="preconnect" href="https://esm.sh" crossorigin>
-
-  <!-- Critical CSS: Inlined for optimal performance (eliminates render blocking) -->
+  <!-- Font faces inlined so fonts are discovered before the main stylesheet is parsed -->
   <style>
     /* Self-hosted Font Definitions */
     @font-face {
@@ -159,39 +154,6 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
     ::selection {
       background: #121212;
       color: #f5f5f5;
-    }
-
-    /* Critical Button Styles (Header CTA) */
-    .btn-primary {
-      background-color: #121212;
-      color: #f5f5f5;
-      font-family: 'Poppins', sans-serif;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 1rem 2rem;
-      border: 1px solid #121212;
-      transition: all 0.3s ease;
-      display: inline-block;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      background-color: #f5f5f5;
-      color: #121212;
-    }
-
-    /* Critical Animation (Hero Section) */
-    .reveal-text {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .reveal-text.revealed {
-      opacity: 1;
-      transform: translateY(0);
     }
   </style>
 </head>

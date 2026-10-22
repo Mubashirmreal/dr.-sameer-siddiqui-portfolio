@@ -10,17 +10,14 @@ import WhyChoose from './components/WhyChoose';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import CookieConsent from './components/CookieConsent';
-import { SCHEMA_MARKUP } from './constants';
+import { useRevealOnScroll } from './hooks/useRevealOnScroll';
 
 const App: React.FC = () => {
+  useRevealOnScroll();
+
   return (
     <div className="min-h-screen bg-paper text-ink overflow-x-hidden selection:bg-black selection:text-white">
-      {/* JSON-LD Schema Injection */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA_MARKUP) }}
-      />
-
+      {/* JSON-LD structured data lives in renderer/+onRenderHtml.tsx */}
       <Header />
 
       <main className="border-l border-r border-black mx-auto max-w-[1920px]">

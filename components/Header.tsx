@@ -1,30 +1,74 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { BOOKING_URL, LINKEDIN_URL } from '../constants';
+
+const SECTION_LINKS = [
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+];
+
+const linkClass = "cursor-pointer hover:underline underline-offset-4 decoration-1";
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // Section to scroll to once the mobile menu has finished collapsing. The open menu
+  // is part of the sticky header's height, so scrolling earlier overshoots the target.
+  const pendingSectionRef = useRef<HTMLElement | null>(null);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (event: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      // Close mobile menu first
-      setIsMobileMenuOpen(false);
+    if (!element) return; // fall back to the native #hash jump
 
-      // Small delay to let menu close animation complete
-      setTimeout(() => {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }, 100);
+    event.preventDefault();
+    if (isMobileMenuOpen) {
+      pendingSectionRef.current = element;
+      setIsMobileMenuOpen(false);
     } else {
-      console.error(`Section with id "${sectionId}" not found`);
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+  const handleMenuExitComplete = () => {
+    pendingSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    pendingSectionRef.current = null;
   };
+
+  const closeMenu = () => setIsMobileMenuOpen(false);
+
+  const renderLinks = (itemClass: string, isMobile: boolean) => (
+    <>
+      {SECTION_LINKS.map(({ id, label }) => (
+        <li key={id} className={itemClass}>
+          <a href={`#${id}`} onClick={(e) => scrollToSection(e, id)} className={linkClass}>
+            {label}
+          </a>
+        </li>
+      ))}
+      <li className={itemClass}>
+        <a
+          href={LINKEDIN_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={linkClass}
+          onClick={isMobile ? closeMenu : undefined}
+        >
+          LinkedIn
+        </a>
+      </li>
+      <li className={isMobile ? 'pt-4' : undefined}>
+        <a
+          id={isMobile ? undefined : 'book-consultation-header'}
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`btn-primary text-xs${isMobile ? ' block text-center' : ''}`}
+          onClick={isMobile ? closeMenu : undefined}
+        >
+          Book Consultation
+        </a>
+      </li>
+    </>
+  );
 
   return (
     <motion.header
@@ -47,45 +91,13 @@ const Header: React.FC = () => {
         {/* Desktop Navigation - Hidden on mobile */}
         <nav className="hidden md:block">
           <ul className="flex justify-end gap-8 items-center text-xs font-body uppercase tracking-widest font-medium">
-            <li
-              onClick={() => scrollToSection('about')}
-              className="cursor-pointer hover:underline underline-offset-4 decoration-1"
-            >
-              About
-            </li>
-            <li
-              onClick={() => scrollToSection('experience')}
-              className="cursor-pointer hover:underline underline-offset-4 decoration-1"
-            >
-              Experience
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/dr-sameer-siddiqui-688a202/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cursor-pointer hover:underline underline-offset-4 decoration-1"
-              >
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a
-                id="book-consultation-header"
-                href="https://app.cal.eu/sameersiddiqui/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-xs"
-              >
-                Book Consultation
-              </a>
-            </li>
+            {renderLinks('', false)}
           </ul>
         </nav>
 
         {/* Mobile Hamburger Menu - Only visible on mobile */}
         <button
-          onClick={toggleMobileMenu}
+          onClick={() => setIsMobileMenuOpen((open) => !open)}
           className="md:hidden flex flex-col justify-center items-center w-10 h-10 cursor-pointer relative z-50"
           aria-label="Menu"
           aria-expanded={isMobileMenuOpen}
@@ -97,7 +109,7 @@ const Header: React.FC = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
+      <AnimatePresence onExitComplete={handleMenuExitComplete}>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -108,40 +120,7 @@ const Header: React.FC = () => {
           >
             <nav className="px-6 py-8">
               <ul className="flex flex-col gap-6 text-sm font-body uppercase tracking-widest font-medium">
-                <li
-                  onClick={() => scrollToSection('about')}
-                  className="cursor-pointer hover:underline underline-offset-4 decoration-1 py-2"
-                >
-                  About
-                </li>
-                <li
-                  onClick={() => scrollToSection('experience')}
-                  className="cursor-pointer hover:underline underline-offset-4 decoration-1 py-2"
-                >
-                  Experience
-                </li>
-                <li className="py-2">
-                  <a
-                    href="https://www.linkedin.com/in/dr-sameer-siddiqui-688a202/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cursor-pointer hover:underline underline-offset-4 decoration-1"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    LinkedIn
-                  </a>
-                </li>
-                <li className="pt-4">
-                  <a
-                    href="https://app.cal.eu/sameersiddiqui/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary text-xs block text-center"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Book Consultation
-                  </a>
-                </li>
+                {renderLinks('py-2', true)}
               </ul>
             </nav>
           </motion.div>

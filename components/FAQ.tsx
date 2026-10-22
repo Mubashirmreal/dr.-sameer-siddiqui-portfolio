@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FAQ_DATA } from '../constants';
+import { BOOKING_URL, FAQ_DATA } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const FAQ: React.FC = () => {
@@ -37,7 +37,7 @@ const FAQ: React.FC = () => {
               Have a specific issue?
             </p>
             <a
-              href="https://app.cal.eu/sameersiddiqui/30min"
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-body text-sm font-bold uppercase tracking-widest border-b-2 border-black pb-1 hover:bg-black hover:text-white hover:px-2 hover:pb-2 hover:border-b-0 transition-all duration-300"
@@ -61,6 +61,7 @@ const FAQ: React.FC = () => {
             >
               <button
                 onClick={() => toggleFAQ(index)}
+                aria-expanded={openIndex === index}
                 className="w-full flex items-start justify-between p-8 md:p-12 text-left hover:bg-gray-200 transition-colors duration-200"
               >
                 <span className="font-body font-bold text-lg md:text-xl pr-8 w-11/12 reveal-text">{item.question}</span>

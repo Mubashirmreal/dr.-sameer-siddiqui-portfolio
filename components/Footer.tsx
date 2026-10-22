@@ -1,34 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { BOOKING_URL, CONTACT_EMAIL, LINKEDIN_URL } from '../constants';
+import { CONSENT_CHANGE_EVENT, readConsent } from '../utils/consent';
 
 const Footer: React.FC = () => {
   const [showConsultButton, setShowConsultButton] = useState(false);
 
   useEffect(() => {
-    // Check if cookie consent has been decided
-    const checkCookieConsent = () => {
-      const consent = localStorage.getItem('cookie_consent');
-      // Show the button only after cookie consent is decided (accepted or declined)
-      if (consent) {
-        setShowConsultButton(true);
-      }
-    };
+    // Show the sticky CTA only once the cookie banner is out of the way (accepted or declined)
+    if (readConsent()) {
+      setShowConsultButton(true);
+      return;
+    }
 
-    // Check immediately
-    checkCookieConsent();
-
-    // Poll every second to detect when consent is given
-    const interval = setInterval(checkCookieConsent, 500);
-
-    return () => {
-      clearInterval(interval);
-    };
+    const handleConsentChange = () => setShowConsultButton(true);
+    window.addEventListener(CONSENT_CHANGE_EVENT, handleConsentChange);
+    return () => window.removeEventListener(CONSENT_CHANGE_EVENT, handleConsentChange);
   }, []);
 
   return (
     <>
       <motion.footer
-        className="py-12 px-6 md:px-12 bg-paper"
+        className={`pt-12 px-6 md:px-12 bg-paper ${showConsultButton ? 'pb-28 md:pb-12' : 'pb-12'}`}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -38,10 +31,10 @@ const Footer: React.FC = () => {
           {/* Left: Email */}
           <div>
             <a
-              href="mailto:hi@drsameersiddiqui.com"
+              href={`mailto:${CONTACT_EMAIL}`}
               className="font-body text-lg font-medium tracking-wide hover:opacity-60 transition-opacity inline-block"
             >
-              hi@drsameersiddiqui.com
+              {CONTACT_EMAIL}
             </a>
           </div>
 
@@ -55,7 +48,9 @@ const Footer: React.FC = () => {
           {/* Right: LinkedIn */}
           <div className="md:text-right">
             <a
-              href="https://www.linkedin.com/in/dr-sameer-siddiqui-688a202/"
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-body text-lg font-bold uppercase tracking-widest border-b border-black hover:bg-black hover:text-white transition-colors inline-block"
             >
               LinkedIn Profile
@@ -75,7 +70,7 @@ const Footer: React.FC = () => {
             className="md:hidden fixed bottom-0 left-0 right-0 z-40 border-t border-black"
           >
             <a
-              href="https://app.cal.eu/sameersiddiqui/30min"
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full bg-[#121212] text-[#f5f5f5] font-body font-bold uppercase tracking-widest text-center py-4 px-6 hover:bg-[#f5f5f5] hover:text-[#121212] transition-colors duration-300 active:scale-[0.98]"

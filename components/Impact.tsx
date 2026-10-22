@@ -1,15 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const Impact: React.FC = () => {
-  const parallaxRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    // Effect hook can be used for other animations if needed
-    return () => {
-      // Cleanup if needed
-    };
-  }, []);
   return (
     <section className="border-t border-b border-black">
       <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -39,15 +31,14 @@ const Impact: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Right Column: Image with Parallax (Order 1 on Mobile, Order 2 on Desktop) */}
-        <div className="relative h-[40vh] lg:h-auto lg:max-h-[500px] border-b lg:border-b-0 lg:border-l border-black overflow-hidden order-1 lg:order-2 parallax-container">
+        {/* Right Column: Image (Order 1 on Mobile, Order 2 on Desktop) */}
+        <div className="relative h-[40vh] lg:h-auto lg:max-h-[500px] border-b lg:border-b-0 lg:border-l border-black overflow-hidden order-1 lg:order-2">
           <img
-            ref={parallaxRef}
             src="/dr-sameer-magazine.webp"
             alt="Dr. Sameer Siddiqui - Magazine Feature"
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out parallax-image"
+            className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
           />
         </div>
 
