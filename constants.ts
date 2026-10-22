@@ -62,7 +62,7 @@ export const SERVICES_DATA: ServiceItem[] = [
 
 export const HIGHLIGHTS_DATA: HighlightItem[] = [
   {
-    organization: "R&R Consultants LLC",
+    organization: "RNR Consultants LLC",
     role: "Senior Member (Pro Bono)",
     description: "Legal, contractual, and governance advisory."
   },
