@@ -42,6 +42,23 @@ export const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
   <meta name="author" content="Dr. Sameer Siddiqui">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
+  <link rel="canonical" href="https://www.drsameersiddiqui.com/">
+
+  <!-- Open Graph / social share previews -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Dr. Sameer Siddiqui">
+  <meta property="og:url" content="https://www.drsameersiddiqui.com/">
+  <meta property="og:title" content="Dr. Sameer Siddiqui | International Contracts & Commercial Lawyer">
+  <meta property="og:description" content="International contracts and commercial lawyer with 18+ years advising governments, corporates, and infrastructure projects in the Middle East and beyond.">
+  <meta property="og:image" content="https://www.drsameersiddiqui.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dr. Sameer Siddiqui receiving a Legal Excellence Award at the Global Legal Summit">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dr. Sameer Siddiqui | International Contracts & Commercial Lawyer">
+  <meta name="twitter:description" content="International contracts and commercial lawyer with 18+ years advising governments, corporates, and infrastructure projects in the Middle East and beyond.">
+  <meta name="twitter:image" content="https://www.drsameersiddiqui.com/og-image.jpg">
 
 
 
